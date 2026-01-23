@@ -41,3 +41,68 @@ switch (action) {
   default:
     console.log("Invalid action selected");
 }
+
+let orderType = "delivery";
+// let amount = 1200;
+let paymentMode = "card";
+let isPremium = true;
+let distance = 8;
+
+let discount = 0;
+let deliveryCharge = 0;
+let valid = true;
+
+switch (orderType) {
+  case "dinein":
+    if (amount < 500) {
+      console.log("Minimum order is 500");
+      valid = false;
+    }
+    if (isPremium) discount += 10;
+    break;
+
+  case "takeaway":
+    if (amount < 300) {
+      console.log("Minimum order is 300");
+      valid = false;
+    }
+    if (paymentMode === "cash") {
+      console.log("Cash not allowed for takeaway");
+      valid = false;
+    }
+    if (paymentMode === "upi") discount += 5;
+    break;
+
+  case "delivery":
+    if (amount < 700) {
+      console.log("Minimum order is 700");
+      valid = false;
+    } else if (distance > 10) {
+      console.log("Delivery not available beyond 10km");
+      valid = false;
+    } else {
+      if (!isPremium) {
+        if (distance <= 5) deliveryCharge = 40;
+        else deliveryCharge = 80;
+      }
+    }
+    break;
+
+  default:
+    console.log("Invalid order type");
+    valid = false;
+}
+
+// Common rules
+if (paymentMode === "card") {
+  discount += 2;
+}
+
+if (discount > 20) discount = 20;
+
+if (valid) {
+  let finalAmount = amount + deliveryCharge - (amount * discount / 100);
+  console.log("Discount:", discount + "%");
+  console.log("Delivery Charge:", deliveryCharge);
+  console.log("Final Payable:", finalAmount);
+}
