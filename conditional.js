@@ -29,3 +29,44 @@ let finalAmount = amount - (amount * discount / 100);
 
 console.log("Discount:", discount + "%");
 console.log("Final Amount:", finalAmount);
+
+
+let num=5
+let num2=10
+if(n%2==0){
+    console.log("even")
+}else{
+    console.log("odd")
+}
+
+if(num>num2){
+    console.log("largest",num)
+}else if(num2>num){
+    console.log("largest",num2)
+}else{
+    console.log("equal")
+}
+
+let marks=40
+if(marks>=33){
+    console.log("pass")
+}else{
+    console.log("fail")
+}
+
+if(num>0){
+    console.log("positive")
+}else if(num<0){
+    console.log("negative")
+}else{
+    console.log("equal")
+}
+
+let username="admin"
+let password=1234
+if(username==="admin"&&password===1234){
+    console.log("login sucess")     
+
+}else{
+console.log("Invalid credentials")
+}
