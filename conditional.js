@@ -71,34 +71,66 @@ if(username==="admin"&&password===1234){
 console.log("Invalid credentials")
 }
 
-let totalAmount = 4500;     
-let isMember = true;        
-let hasCoupon = true;        
-let day = "Sunday";          
-let shippingCost=0
-let discount=0
-if(isMember){
-    discount+=30
-}
-if(hasCoupon){
-    discount+=5
-}
-if(day=="sunday"){
-    discount+=2
-}
-if(discount>15){
-    discount=15
-}
-let discountedAmount=totalAmount-(totalAmount*discount/100)
-if(discountedAmount>=5000){
-    shippingCost=0
-}else if(discountedAmount>=3000){
-    shippingCost=50
-}else{
-    shippingCost=100
-}
+// let totalAmount = 4500;     
+// let isMember = true;        
+// let hasCoupon = true;        
+// let day = "Sunday";          
+// let shippingCost=0
+// let discount=0
+// if(isMember){
+//     discount+=30
+// }
+// if(hasCoupon){
+//     discount+=5
+// }
+// if(day=="sunday"){
+//     discount+=2
+// }
+// if(discount>15){
+//     discount=15
+// }
+// let discountedAmount=totalAmount-(totalAmount*discount/100)
+// if(discountedAmount>=5000){
+//     shippingCost=0
+// }else if(discountedAmount>=3000){
+//     shippingCost=50
+// }else{
+//     shippingCost=100
+// }
 
-let finalAmount=discountedAmount+shippingCost
-console.log(discount)
-console.log(shippingCost)
-console.log(finalAmount)
+// let finalAmount=discountedAmount+shippingCost
+// console.log(discount)
+// console.log(shippingCost)
+// console.log(finalAmount)
+
+
+let age = 65;             
+let isStudent = false;       
+let day = "Monday";           
+let showTime = "night";        
+let baseTicketPrice = 300; 
+
+let discount = 0;
+let extraCharge = 0;
+
+if(age < 12) discount = 50;
+if(age >= 60) discount = 30;
+if(isStudent) discount += 10;
+if(day.toLowerCase() === "monday") discount += 5;
+if(showTime.toLowerCase() === "night") discount += 20;
+
+if(discount > 60) discount = 60;
+
+let discountedPrice = baseTicketPrice - (baseTicketPrice * discount / 100);
+
+if(showTime.toLowerCase() === "morning") extraCharge = 20;
+else if(showTime.toLowerCase() === "afternoon") extraCharge = 30;
+else if(showTime.toLowerCase() === "evening") extraCharge = 50;
+else extraCharge = 70;
+
+let finalTicketPrice = discountedPrice + extraCharge;
+
+console.log("Total Discount %:", discount + "%");
+console.log("Price after discount:", discountedPrice);
+console.log("Extra Charge:", extraCharge);
+console.log("Final Ticket Price:", finalTicketPrice);
