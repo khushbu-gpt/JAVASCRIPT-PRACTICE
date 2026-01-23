@@ -106,3 +106,49 @@ if (valid) {
   console.log("Delivery Charge:", deliveryCharge);
   console.log("Final Payable:", finalAmount);
 }
+
+let role = "manager";
+let action = "delete";
+let isActive = true;
+let loginAttempts = 1;
+
+// Step 1: Global checks
+if (loginAttempts > 3) {
+  console.log("Account locked due to multiple failed logins");
+} else if (!isActive && action !== "read") {
+  console.log("Inactive users can only read");
+} else {
+
+  switch (role) {
+    case "admin":
+      console.log("Action allowed");
+      break;
+
+    case "manager":
+      if (action === "delete") {
+        console.log("Managers cannot delete");
+      } else {
+        console.log("Action allowed");
+      }
+      break;
+
+    case "user":
+      if (action === "read" || action === "write") {
+        console.log("Action allowed");
+      } else {
+        console.log("Action not allowed");
+      }
+      break;
+
+    case "guest":
+      if (action === "read") {
+        console.log("Action allowed");
+      } else {
+        console.log("Guests can only read");
+      }
+      break;
+
+    default:
+      console.log("Invalid role");
+  }
+}
