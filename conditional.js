@@ -30,11 +30,10 @@
 // console.log("Discount:", discount + "%");
 // console.log("Final Amount:", finalAmount);
 
-
-// let totalAmount = 4500;     
-// let isMember = true;        
-// let hasCoupon = true;        
-// let day = "Sunday";          
+// let totalAmount = 4500;
+// let isMember = true;
+// let hasCoupon = true;
+// let day = "Sunday";
 // let shippingCost=0
 // let discount=0
 // if(isMember){
@@ -63,12 +62,11 @@
 // console.log(shippingCost)
 // console.log(finalAmount)
 
-
-// let age = 65;             
-// let isStudent = false;       
-// let day = "Monday";           
-// let showTime = "night";        
-// let baseTicketPrice = 300; 
+// let age = 65;
+// let isStudent = false;
+// let day = "Monday";
+// let showTime = "night";
+// let baseTicketPrice = 300;
 
 // let discount = 0;
 // let extraCharge = 0;
@@ -95,29 +93,88 @@
 // console.log("Extra Charge:", extraCharge);
 // console.log("Final Ticket Price:", finalTicketPrice);
 
+// let itemsBought=50;
+// let isStudentCustomer=true;
+// let isMemberCustomer=true;
+// let dayOfWeek="Monday";
+// let initialAmount=500;
+// let serviceCharge=0
+// let discount=0
+// if(isStudentCustomer) discount+=12
+// if(isMemberCustomer) discount+=7
+// if(dayOfWeek.toLowerCase()=="wednesday") discount+=5
+// if(initialAmount>2000) discount+=8
+// if(discount>30) discount=30
+// if(itemsBought<=2) serviceCharge=15
+// else if(itemsBought<=5) serviceCharge=35
+// else if(itemsBought<=9) serviceCharge=60
+// else serviceCharge=120
 
-let itemsBought=50;       
-let isStudentCustomer=true;    
-let isMemberCustomer=true;  
-let dayOfWeek="Monday";        
-let initialAmount=500;    
-let serviceCharge=0
-let discount=0
-if(isStudentCustomer) discount+=12
-if(isMemberCustomer) discount+=7
-if(dayOfWeek.toLowerCase()=="wednesday") discount+=5
-if(initialAmount>2000) discount+=8
-if(discount>30) discount=30
-if(itemsBought<=2) serviceCharge=15
-else if(itemsBought<=5) serviceCharge=35
-else if(itemsBought<=9) serviceCharge=60
-else serviceCharge=120
+// let amountAfterDiscount=initialAmount-(initialAmount*discount/100)
+// let finalPayableAmount=amountAfterDiscount+serviceCharge
 
-let amountAfterDiscount=initialAmount-(initialAmount*discount/100)
-let finalPayableAmount=amountAfterDiscount+serviceCharge
+// console.log("Discount %:", discount);
+// console.log("Amount after discount:", amountAfterDiscount);
+// console.log("Service Fee:", serviceCharge);
+// console.log("Final Payable Amount:", finalPayableAmount);
 
-console.log("Discount %:", discount);
-console.log("Amount after discount:", amountAfterDiscount);
-console.log("Service Fee:", serviceCharge);
-console.log("Final Payable Amount:", finalPayableAmount);
+let customers = [
+  {
+    name: "Alice",
+    items: 5,
+    isStudent: true,
+    isMember: false,
+    day: "Monday",
+    total: 1200,
+  },
+  {
+    name: "Bob",
+    items: 8,
+    isStudent: false,
+    isMember: true,
+    day: "Wednesday",
+    total: 2500,
+  },
+  {
+    name: "Charlie",
+    items: 2,
+    isStudent: true,
+    isMember: true,
+    day: "Friday",
+    total: 800,
+  },
+  {
+    name: "Diana",
+    items: 12,
+    isStudent: false,
+    isMember: false,
+    day: "Sunday",
+    total: 3000,
+  },
+];
 
+const res = customers.map((items) => {
+  let bonus = 0;
+  let discount = 0;
+  if (
+    items.isMember &&
+    items.isStudent &&
+    items.day.toLowerCase() == "sunday"
+  ) {
+    bonus = 5;
+  }
+  if (items.items > 10 && items.total > 3000) {
+    discount = 7;
+  }
+  let discountedAmount = items.total - (items.total * discount) / 100;
+  let finalPayableAmount = discountedAmount - (discountedAmount * bonus) / 100;
+  return {
+    name: items.name,
+    originalTotal: items.total,
+    discountPercent: discount,
+    discountedAmount,
+    bonusPercent: bonus,
+    finalPayableAmount,
+  };
+});
+console.log(res);
