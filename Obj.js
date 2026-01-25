@@ -64,3 +64,30 @@ let user = {
 user.address.city="Noida"
 user.address.location.lat=28.5355
 user.address.location.country="India"
+
+
+
+let ob1 = { a: 1 }
+let ob2 = ob1
+
+ob2.a = 2
+console.log(ob1.a)  // 2
+
+JSON.parse(JSON.stringify(ob1))
+
+let copy = JSON.parse(JSON.stringify(user))
+copy.address.city = "Noida"
+
+console.log(user.address.city)  // Delhi  (original not changed)
+
+function deepClone(obj) {
+  if (typeof obj !== "object" || obj === null) return obj
+
+  let clone = Array.isArray(obj) ? [] : {}
+
+  for (let key in obj) {
+    clone[key] = deepClone(obj[key])
+  }
+
+  return clone
+}
