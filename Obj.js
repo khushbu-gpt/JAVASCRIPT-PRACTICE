@@ -91,3 +91,15 @@ function deepClone(obj) {
 
   return clone
 }
+
+let user2 = {
+  name: "Rahul",
+  age: 25,
+  skills: {
+    js: true,
+    css: false
+  }
+}
+
+let {name,age,skills:{js:javascriptSkill,css}}=user2
+console.log(javascriptSkill)
