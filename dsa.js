@@ -90,13 +90,13 @@ console.log(missing)
 // Maximum subarray sum
 
 let ar = [1, 2, 3, 4, 5];
-// for (let i = 0; i < arr.length / 2; i++) {
-//   let temp = arr[i]
-//   arr[i] = arr[arr.length - 1 - i]
-//   arr[arr.length - 1 - i] = temp
-// }
-let start = 0;
-let end = ar.length - 1;
+for (let i = 0; i < arr.length / 2; i++) {
+  let temp = arr[i]
+  arr[i] = arr[arr.length - 1 - i]
+  arr[arr.length - 1 - i] = temp
+}
+// let start = 0;
+// let end = ar.length - 1;
 
 while (start < end) {
   let temp = ar[start];
@@ -125,9 +125,29 @@ for (let j = 0; j < arr2.length; j++) {
 
 console.log(result)
 
-
+let start=arr1.length
 for (let i = 0; i < arr2.length; i++) {
-  arr1[start + i] = arr2[i]
+  arr1[start+i] = arr2[i]
 }
 
 console.log(arr1)
+
+
+//intersection of two arr
+// let i = 0
+let j = 0
+let intersection = []
+
+while (i < arr1.length && j < arr2.length) {
+  if (arr1[i] < arr2[j]) {
+    i++
+  } else if (arr1[i] > arr2[j]) {
+    j++
+  } else {
+    intersection[intersection.length] = arr1[i]
+    i++
+    j++
+  }
+}
+
+console.log(intersection)
