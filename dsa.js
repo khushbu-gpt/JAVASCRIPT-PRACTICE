@@ -88,6 +88,7 @@ console.log(missing)
 // Find majority element
 // Rotate array by k steps
 // Maximum subarray sum
+
 let ar = [1, 2, 3, 4, 5];
 // for (let i = 0; i < arr.length / 2; i++) {
 //   let temp = arr[i]
@@ -107,3 +108,26 @@ while (start < end) {
 }
 
 console.log(ar);
+
+//combine two arr
+let arr1 = [1, 2, 3]
+let arr2 = [4, 5, 6]
+
+let result = []
+
+for (let i = 0; i < arr1.length; i++) {
+  result[result.length] = arr1[i]
+}
+
+for (let j = 0; j < arr2.length; j++) {
+  result[result.length] = arr2[j]
+}
+
+console.log(result)
+
+
+for (let i = 0; i < arr2.length; i++) {
+  arr1[start + i] = arr2[i]
+}
+
+console.log(arr1)
