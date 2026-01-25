@@ -15,3 +15,52 @@ console.log(merged)
 
 console.log("age" in person)  
 console.log("salary" in person) 
+
+let person2 = {
+  name: "Khushbu",
+  address: {
+    city: "Delhi",
+    pin: 110001
+  }
+}
+console.log(person2.address.state)   // Delhi
+for (let key in person2) {
+  console.log(key, person2[key])
+}
+
+let str="I am learning JavaScript and JavaScript is fun and easy"
+
+let obj={}
+const word=str.split(" ")
+let maxChar=""
+let count=0
+for(let i=0;i<word.length;i++){
+if(obj[word[i]]){
+    obj[word[i]]++
+}else{
+    obj[word[i]]=1
+}
+if(obj[word[i]]>count){
+    count=obj[word[i]]
+    maxChar=word[i]
+}
+}
+console.log(maxChar)
+console.log(obj)
+
+
+let user = {
+  name: "Rahul",
+  address: {
+    city: "Delhi",
+    pin: 110001,
+    location: {
+      lat: 28.7041,
+      long: 77.1025
+    }
+  }
+}
+
+user.address.city="Noida"
+user.address.location.lat=28.5355
+user.address.location.country="India"
